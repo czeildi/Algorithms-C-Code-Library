@@ -15,6 +15,20 @@ class interval{
     }
 };
 
+//interval scheduling: max # of disjoint intervals: greedy method
+int interval_scheduling(vector<interval> & jobs) {
+  sort(jobs.begin(), jobs.end());
+  int disjointIntervals = 1;
+  auto job = jobs.begin();
+  for(auto tempjob = jobs.begin(); tempjob!= jobs.end(); tempjob ++) {
+    if (tempjob->left > job->right) {
+      disjointIntervals++;
+      job = tempjob;
+    }
+  }
+  return disjointIntervals;
+}
+
 /*weighted interval scheduling: max weight of disjoint intervals
   sort in increasing order w.r.t. right endpoints */
 int weightedIntervalScheduling(vector<interval> & jobs) {
