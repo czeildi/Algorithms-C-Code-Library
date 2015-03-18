@@ -1,3 +1,4 @@
+#include <vector>
 using namespace std;
 
 //0-1 Knapsack problem
